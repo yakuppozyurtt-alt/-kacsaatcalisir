@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kaç Saat Çalışır? | UPS, Akü ve Power Station Hesaplama</title>
+
+  <meta name="description" content="UPS, akü ve power station cihazınızı kaç saat çalıştırır? Watt, Wh, Ah ve mAh değerleriyle ücretsiz çalışma süresi hesaplayın.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #182230;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    main {
+      max-width: 760px;
+      margin: auto;
+      padding: 22px 16px 50px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 15px;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      border: 0;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #voltageBox {
+      display: none;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .bigResult {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1d4ed8;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Kaç Saat Çalışır?</h1>
+  <p>UPS, akü ve power station çalışma süresi hesaplama motoru</p>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>Çalışma Süresi Hesapla</h2>
+
+    <p>
+      Cihazınızın güç tüketimini ve batarya kapasitesini girerek
+      yaklaşık kaç saat çalışabileceğini hesaplayın.
+    </p>
+
+    <label for="watt">Cihazın güç tüketimi (Watt)</label>
+    <input id="watt" type="number" min="0" step="any" placeholder="Örn: 12">
+
+    <label for="capacityType">Batarya kapasitesi hangi birimde?</label>
+
+    <select id="capacityType" onchange="capacityChanged()">
+      <option value="wh">Wh (Watt-saat)</option>
+      <option value="ah">Ah (Amper-saat)</option>
+      <option value="mah">mAh (miliamper-saat)</option>
+    </select>
+
+    <label for="capacity">Batarya kapasitesi</label>
+    <input id="capacity" type="number" min="0" step="any" placeholder="Örn: 100">
+
+    <div id="voltageBox">
+      <label for="voltage">Batarya voltajı (V)</label>
+      <input id="voltage" type="number" min="0" step="any" placeholder="Örn: 12">
+    </div>
+
+    <label for="efficiency">Sistem verimliliği (%)</label>
+    <input id="efficiency" type="number" value="85" min="1" max="100">
+
+    <label for="dod">Kullanılabilir batarya kapasitesi (%)</label>
+    <input id="dod" type="number" value="80" min="1" max="100">
+
+    <button onclick="calculateRuntime()">Kaç Saat Çalışır?</button>
+
+    <div id="result"></div>
+  </section>
+
+  <section class="card">
+    <h2>Hesaplama Nasıl Yapılıyor?</h2>
+
+    <p>
+      Bataryanın nominal enerji kapasitesi önce Wh değerine çevrilir.
+      Ardından sistem verimliliği ve kullanılabilir kapasite hesaba katılır.
+    </p>
+
+    <p>
+      Gerçek kullanım süresi; cihazın güç tüketimi, batarya tipi,
+      inverter kayıpları, sıcaklık, batarya yaşı ve yük değişimlerine
+      göre farklılık gösterebilir.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Neleri Hesaplayabilirsiniz?</h2>
+
+    <p>
+      Modem, ONT cihazı, güvenlik kamerası, laptop, televizyon,
+      mini buzdolabı ve benzeri cihazların UPS, akü veya power station
+      ile yaklaşık çalışma süresini hesaplayabilirsiniz.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 kacsaatcalisir.com — Hesaplamalar yaklaşık sonuç verir.
+</footer>
+
+<script>
+function capacityChanged() {
+  const type = document.getElementById("capacityType").value;
+  const voltageBox = document.getElementById("voltageBox");
+
+  voltageBox.style.display = type === "wh" ? "none" : "block";
+}
+
+function calculateRuntime() {
+  const watt = parseFloat(document.getElementById("watt").value);
+  const capacity = parseFloat(document.getElementById("capacity").value);
+  const type = document.getElementById("capacityType").value;
+  const efficiency =
+    parseFloat(document.getElementById("efficiency").value) / 100;
+  const dod =
+    parseFloat(document.getElementById("dod").value) / 100;
+
+  let nominalWh;
+
+  if (!watt || watt <= 0 || !capacity || capacity <= 0) {
+    alert("Lütfen cihaz gücü ve batarya kapasitesini doğru girin.");
+    return;
+  }
+
+  if (type === "wh") {
+    nominalWh = capacity;
+  } else {
+    const voltage = parseFloat(document.getElementById("voltage").value);
+
+    if (!voltage || voltage <= 0) {
+      alert("Lütfen batarya voltajını girin.");
+      return;
+    }
+
+    if (type === "ah") {
+      nominalWh = capacity * voltage;
+    } else {
+      nominalWh = (capacity / 1000) * voltage;
+    }
+  }
+
+  const usableWh = nominalWh * efficiency * dod;
+  const hours = usableWh / watt;
+
+  const wholeHours = Math.floor(hours);
+  const minutes = Math.round((hours - wholeHours) * 60);
+
+  const required8Hours = (watt * 8) / (efficiency * dod);
+  const recommended8Hours = required8Hours * 1.20;
+
+  const result = document.getElementById("result");
+
+  result.style.display = "block";
+
+  result.innerHTML = `
+    <div class="bigResult">
+      Yaklaşık ${wholeHours} saat ${minutes} dakika
+    </div>
+
+    <p>
+      Nominal batarya kapasitesi:
+      <strong>${nominalWh.toFixed(1)} Wh</strong>
+    </p>
+
+    <p>
+      Tahmini kullanılabilir enerji:
+      <strong>${usableWh.toFixed(1)} Wh</strong>
+    </p>
+
+    <p>
+      Bu cihazı 8 saat çalıştırmak için yaklaşık
+      <strong>${recommended8Hours.toFixed(0)} Wh veya üzeri</strong>
+      nominal kapasite tercih edilebilir.
+    </p>
+
+    <p class="note">
+      Sonuç teorik bir tahmindir. Gerçek çalışma süresi kullanılan
+      donanıma ve koşullara göre değişebilir.
+    </p>
+  `;
+}
+</script>
+
+</body>
+</html>
