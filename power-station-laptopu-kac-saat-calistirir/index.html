@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Power Station Laptopu Kaç Saat Çalıştırır? Hesaplama</title>
+
+<meta name="description" content="Power station laptopu kaç saat çalıştırır? Wh kapasitesi, laptop güç tüketimi, AC veya USB-C bağlantısı ve hedef süreye göre ücretsiz hesaplayın.">
+
+<link rel="canonical" href="https://kacsaatcalisir.com/power-station-laptopu-kac-saat-calistirir/">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+padding:20px;
+background:#f8fafc;
+color:#1e293b;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+line-height:1.6;
+}
+
+.container{
+max-width:760px;
+margin:auto;
+}
+
+.card{
+background:#fff;
+border:1px solid #e2e8f0;
+border-radius:14px;
+padding:22px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+h1,h2,h3{color:#0f172a}
+h1{font-size:28px;line-height:1.25;margin-top:0}
+h2{font-size:21px;margin-top:0}
+
+.form-group{margin-bottom:16px}
+
+label{
+display:block;
+font-weight:700;
+margin-bottom:6px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+font-size:16px;
+border:1px solid #cbd5e1;
+border-radius:8px;
+background:#fff;
+}
+
+.hint{
+display:block;
+font-size:13px;
+color:#64748b;
+margin-top:5px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:0;
+border-radius:8px;
+background:#2563eb;
+color:#fff;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+
+.result{
+display:none;
+margin-top:20px;
+padding:18px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+background:#f1f5f9;
+}
+
+.badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:6px;
+font-size:13px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.success{
+background:#dcfce7;
+color:#166534;
+}
+
+.warning{
+background:#fee2e2;
+color:#991b1b;
+}
+
+.info{
+background:#e0f2fe;
+border-left:4px solid #0284c7;
+padding:14px;
+border-radius:6px;
+margin:15px 0;
+}
+
+.recommendation{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+padding:16px;
+border-radius:10px;
+margin-top:16px;
+}
+
+.cta{
+display:block;
+text-align:center;
+text-decoration:none;
+background:#16a34a;
+color:#fff;
+padding:13px;
+border-radius:8px;
+font-weight:700;
+margin-top:12px;
+}
+
+.small{
+font-size:13px;
+color:#64748b;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin:15px 0;
+}
+
+th,td{
+border:1px solid #e2e8f0;
+padding:10px;
+text-align:left;
+}
+
+th{background:#f1f5f9}
+
+.nav{
+margin-bottom:18px;
+}
+
+.nav a{
+color:#2563eb;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+font-size:13px;
+color:#64748b;
+padding:20px;
+}
+</style>
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type":"Question",
+"name":"Power station laptopu kaç saat çalıştırır?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Çalışma süresi power station kapasitesi, laptopun ortalama güç tüketimi ve bağlantı verimine bağlıdır. Kullanılabilir Wh değeri ortalama Watt tüketimine bölünerek yaklaşık süre hesaplanabilir."
+}
+},
+{
+"@type":"Question",
+"name":"Laptop için kaç Wh power station gerekir?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Gerekli Wh kapasitesi laptopun ortalama güç tüketimine, hedef çalışma süresine ve enerji dönüşüm kayıplarına göre değişir."
+}
+},
+{
+"@type":"Question",
+"name":"Laptopu USB-C ile power stationa bağlamak daha verimli olabilir mi?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Uyumlu cihazlarda USB-C PD ile doğrudan DC bağlantısı, AC inverter ve laptop adaptörü üzerinden kullanımda oluşabilecek bazı dönüşüm kayıplarını azaltabilir. Gerçek verim cihazlara göre değişir."
+}
+}
+]
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+<a href="/">← Ana Sayfaya Dön</a>
+</div>
+
+<div class="card">
+
+<h1>Power Station Laptopu Kaç Saat Çalıştırır?</h1>
+
+<p>
+Power station kapasitenizi ve laptopunuzun ortalama güç tüketimini girerek
+yaklaşık çalışma süresini hesaplayabilirsiniz.
+</p>
+
+<p>
+Ayrıca hedeflediğiniz kullanım süresi için yaklaşık kaç Wh kapasiteye
+ihtiyacınız olduğunu görebilirsiniz.
+</p>
+
+<div class="info">
+<strong>Önemli:</strong> Laptop adaptörünün üzerinde örneğin 65 W veya
+100 W yazması, laptopun sürekli bu kadar güç tükettiği anlamına gelmez.
+Gerçek tüketim; işlemci ve ekran kartı yükü, ekran parlaklığı,
+batarya şarj durumu ve yapılan işe göre değişir.
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Laptop Çalışma Süresi Hesaplayıcı</h2>
+
+<div class="form-group">
+<label for="capacity">Power Station Kapasitesi (Wh)</label>
+<input type="number" id="capacity" value="500" min="1">
+<span class="hint">Örnek: 300 Wh, 500 Wh, 1000 Wh</span>
+</div>
+
+<div class="form-group">
+<label for="laptopWatt">Laptop Ortalama Güç Tüketimi (W)</label>
+<input type="number" id="laptopWatt" value="60" min="1">
+<span class="hint">
+Mümkünse adaptörün maksimum değerinden ziyade gerçek ortalama tüketimi kullanın.
+</span>
+</div>
+
+<div class="form-group">
+<label for="connection">Bağlantı Yöntemi</label>
+
+<select id="connection">
+<option value="0.85">AC priz + laptop adaptörü (%85 varsayım)</option>
+<option value="0.92">USB-C PD doğrudan bağlantı (%92 varsayım)</option>
+</select>
+
+<span class="hint">
+Bunlar hesaplama varsayımlarıdır. Gerçek verim power station ve laptopa göre değişebilir.
+</span>
+</div>
+
+<div class="form-group">
+<label for="targetHours">Hedeflenen Çalışma Süresi (Saat)</label>
+<input type="number" id="targetHours" value="8" min="0.1" step="0.1">
+</div>
+
+<button onclick="calculateLaptop()">
+Süreyi ve İhtiyacımı Hesapla
+</button>
+
+<div id="result" class="result">
+
+<div id="status" class="badge"></div>
+
+<div id="runtime"></div>
+
+<div class="recommendation">
+
+<div id="requirement"></div>
+
+<a
+href="https://www.trendyol.com/sr?q=power+station"
+target="_blank"
+rel="nofollow sponsored"
+class="cta"
+id="productButton">
+Power Station Modellerini İncele ➔
+</a>
+
+<p class="small">
+Bu bağlantı şu anda genel ürün aramasına yönlendirir.
+Uygun bir affiliate programına kabul edilmemiz halinde takip bağlantısıyla değiştirilebilir.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Hesaplama Nasıl Yapılır?</h2>
+
+<p>
+Örneğin 500 Wh kapasiteli bir power station kullandığımızı düşünelim.
+Laptop ortalama 60 W tüketiyor ve AC bağlantısında %85 toplam verim
+varsayıyoruz.
+</p>
+
+<p>
+<strong>500 Wh × 0,85 = 425 Wh</strong>
+</p>
+
+<p>
+Yaklaşık çalışma süresi:
+</p>
+
+<p>
+<strong>425 Wh ÷ 60 W ≈ 7,1 saat</strong>
+</p>
+
+<p>
+Bu yalnızca matematiksel tahmindir. Laptopun gerçek tüketimi kullanım
+sırasında sürekli değişebilir.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>8 Saat Laptop Kullanmak İçin Kaç Wh Gerekir?</h2>
+
+<p>
+Laptopun ortalama 60 W tükettiğini varsayalım:
+</p>
+
+<p>
+<strong>60 W × 8 saat = 480 Wh</strong>
+</p>
+
+<p>
+AC kullanımında %85 verim varsayımıyla gereken yaklaşık nominal kapasite:
+</p>
+
+<p>
+<strong>480 ÷ 0,85 ≈ 565 Wh</strong>
+</p>
+
+<p>
+Gerçek kullanım değişiklikleri için %20 kapasite payı eklenirse:
+</p>
+
+<p>
+<strong>yaklaşık 678 Wh ve üzeri</strong>
+</p>
+
+<p>
+karşılaştırılabilecek bir kapasite sınıfı haline gelir.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>AC Priz mi USB-C PD mi?</h2>
+
+<p>
+Power station'ın AC prizini kullandığınızda enerji önce bataryadan
+inverter aracılığıyla AC elektriğe dönüştürülür. Laptop adaptörü daha
+sonra bunu tekrar laptopun ihtiyaç duyduğu DC gerilime dönüştürür.
+</p>
+
+<p>
+Uyumlu bir laptop ve power station'da USB-C Power Delivery kullanılması,
+bu dönüşüm adımlarından bazılarını ortadan kaldırabileceği için daha
+verimli olabilir.
+</p>
+
+<div class="info">
+USB-C kullanmadan önce power station'ın USB-C PD çıkış gücünün
+laptopunuzun ihtiyaç duyduğu gücü desteklediğini kontrol edin.
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Örnek Çalışma Süreleri</h2>
+
+<table>
+
+<tr>
+<th>Power Station</th>
+<th>Laptop</th>
+<th>%85 Verimle</th>
+</tr>
+
+<tr>
+<td>300 Wh</td>
+<td>60 W</td>
+<td>≈ 4,3 saat</td>
+</tr>
+
+<tr>
+<td>500 Wh</td>
+<td>60 W</td>
+<td>≈ 7,1 saat</td>
+</tr>
+
+<tr>
+<td>1000 Wh</td>
+<td>60 W</td>
+<td>≈ 14,2 saat</td>
+</tr>
+
+</table>
+
+<p class="small">
+Gerçek süre laptopun anlık tüketimine ve power station verimliliğine göre değişebilir.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Oyun Laptopunda Süre Neden Daha Kısa Olabilir?</h2>
+
+<p>
+Oyun, video render veya yapay zekâ işlemleri sırasında CPU ve GPU
+yükü yükseldiği için laptopun enerji tüketimi ciddi şekilde artabilir.
+</p>
+
+<p>
+Bu nedenle internette gezinirken elde edilen çalışma süresi ile
+oyun oynarken elde edilen süre aynı olmayabilir.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Sık Sorulan Sorular</h2>
+
+<h3>500 Wh power station laptopu kaç saat çalıştırır?</h3>
+
+<p>
+Laptop ortalama 60 W tüketiyor ve toplam sistem verimi %85 kabul
+ediliyorsa yaklaşık 7,1 saatlik matematiksel tahmin elde edilir.
+Gerçek süre kullanım koşullarına göre değişebilir.
+</p>
+
+<h3>1000 Wh power station laptopu kaç saat çalıştırır?</h3>
+
+<p>
+Aynı 60 W ortalama tüketim ve %85 verim varsayımında matematiksel
+tahmin yaklaşık 14,2 saattir.
+</p>
+
+<h3>65 W adaptörlü laptop sürekli 65 W mı tüketir?</h3>
+
+<p>
+Hayır. Adaptörün güç değeri sağlayabileceği güçle ilgilidir.
+Laptopun gerçek tüketimi yapılan işe ve donanım yüküne göre değişebilir.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Diğer Hesaplama Araçlarımız</h2>
+
+<p>
+<a href="/power-station-buzdolabini-kac-saat-calistirir/">
+Power Station Buzdolabını Kaç Saat Çalıştırır?
+</a>
+</p>
+
+<p>
+<a href="/mini-ups-modemi-kac-saat-calistirir/">
+Mini UPS Modemi Kaç Saat Çalıştırır?
+</a>
+</p>
+
+<p>
+<a href="/12v-100ah-aku-kac-saat-calisir/">
+12V 100Ah Akü Kaç Saat Çalışır?
+</a>
+</p>
+
+</div>
+
+<footer>
+Kaç Saat Çalıştırır? — Hesaplamalar tahmini sonuç verir.
+</footer>
+
+</div>
+
+<script>
+
+function calculateLaptop(){
+
+const capacity =
+parseFloat(document.getElementById("capacity").value);
+
+const laptopWatt =
+parseFloat(document.getElementById("laptopWatt").value);
+
+const efficiency =
+parseFloat(document.getElementById("connection").value);
+
+const targetHours =
+parseFloat(document.getElementById("targetHours").value);
+
+if(
+!Number.isFinite(capacity) || capacity <= 0 ||
+!Number.isFinite(laptopWatt) || laptopWatt <= 0 ||
+!Number.isFinite(efficiency) || efficiency <= 0 ||
+!Number.isFinite(targetHours) || targetHours <= 0
+){
+alert("Lütfen tüm alanlara geçerli değerler girin.");
+return;
+}
+
+const usableWh = capacity * efficiency;
+
+const runtimeHours = usableWh / laptopWatt;
+
+let hours = Math.floor(runtimeHours);
+
+let minutes =
+Math.round((runtimeHours - hours) * 60);
+
+if(minutes === 60){
+hours++;
+minutes = 0;
+}
+
+const requiredUsableWh =
+laptopWatt * targetHours;
+
+const requiredNominalWh =
+requiredUsableWh / efficiency;
+
+const recommendedWh =
+requiredNominalWh * 1.20;
+
+const result =
+document.getElementById("result");
+
+const status =
+document.getElementById("status");
+
+const runtime =
+document.getElementById("runtime");
+
+const requirement =
+document.getElementById("requirement");
+
+const productButton =
+document.getElementById("productButton");
+
+result.style.display = "block";
+
+runtime.innerHTML = `
+<p>
+<strong>${capacity.toFixed(0)} Wh</strong> power station için
+tahmini kullanılabilir enerji
+<strong>${usableWh.toFixed(0)} Wh</strong>.
+</p>
+
+<p>
+<strong>${laptopWatt.toFixed(0)} W</strong> ortalama tüketimde
+tahmini çalışma süresi:
+<strong>${hours} saat ${minutes} dakika</strong>.
+</p>
+`;
+
+if(runtimeHours >= targetHours){
+
+status.className =
+"badge success";
+
+status.innerText =
+"Hedef Süre İçin Kapasite Yeterli";
+
+}else{
+
+status.className =
+"badge warning";
+
+status.innerText =
+"Hedef Süre İçin Kapasite Yetersiz";
+
+}
+
+requirement.innerHTML = `
+<strong>${targetHours} saatlik hedef için:</strong>
+
+<p>
+Matematiksel minimum kapasite yaklaşık
+<strong>${requiredNominalWh.toFixed(0)} Wh</strong>.
+</p>
+
+<p>
+%20 kapasite payıyla karşılaştırılabilecek hedef yaklaşık
+<strong>${recommendedWh.toFixed(0)} Wh ve üzeri</strong>.
+</p>
+
+<p class="small">
+Bu değer kesin ürün garantisi değildir.
+Gerçek tüketim ve üretici teknik özellikleri kontrol edilmelidir.
+</p>
+`;
+
+productButton.innerText =
+`${recommendedWh.toFixed(0)} Wh ve Üzeri Power Station Seçeneklerini İncele ➔`;
+
+}
+
+</script>
+
+</body>
+</html>
