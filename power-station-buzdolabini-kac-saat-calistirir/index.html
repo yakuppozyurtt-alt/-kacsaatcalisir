@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Power Station Buzdolabını Kaç Saat Çalıştırır? Hesaplama</title>
+
+  <meta name="description" content="Power station buzdolabını kaç saat çalıştırır? Wh kapasitesi, buzdolabı tüketimi ve verim değerine göre tahmini çalışma süresini ve ihtiyacınız olan kapasiteyi hesaplayın.">
+
+  <link rel="canonical" href="https://kacsaatcalisir.com/power-station-buzdolabini-kac-saat-calistirir/">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f8fafc;
+      color: #1e293b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.25;
+      color: #0f172a;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 21px;
+      color: #0f172a;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #0f172a;
+    }
+
+    .intro {
+      font-size: 17px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 5px;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .success {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .warning {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .info {
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      padding: 14px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+
+    .important {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+      padding: 14px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+
+    .recommendation {
+      margin-top: 15px;
+      padding: 16px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+    }
+
+    .cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #16a34a;
+      color: white;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .nav {
+      margin-bottom: 18px;
+    }
+
+    .nav a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      padding: 20px 0;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Power station buzdolabını kaç saat çalıştırır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Çalışma süresi power station kapasitesi, buzdolabının ortalama enerji tüketimi, inverter verimi ve kompresörün çalışma döngüsüne bağlıdır. Wh kapasitesi ortalama Watt tüketimine bölünerek yaklaşık süre hesaplanabilir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Buzdolabı için kaç Wh power station gerekir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gerekli kapasite buzdolabının ortalama güç tüketimine ve hedeflenen çalışma süresine göre değişir. Ayrıca inverter kayıpları ve güvenlik payı hesaba katılmalıdır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Power station kapasitesi yeterliyse her buzdolabını çalıştırır mı?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hayır. Enerji kapasitesinin yanında power station inverterinin sürekli çıkış gücü ve buzdolabı kompresörünün ilk kalkış anındaki güç ihtiyacı da dikkate alınmalıdır."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="nav">
+    <a href="/">← Ana Sayfaya Dön</a>
+  </div>
+
+  <div class="card">
+    <h1>Power Station Buzdolabını Kaç Saat Çalıştırır?</h1>
+
+    <p class="intro">
+      Power station kapasitenizi ve buzdolabınızın tahmini ortalama güç tüketimini girerek
+      yaklaşık çalışma süresini hesaplayabilirsiniz. Ayrıca istediğiniz çalışma süresi için
+      yaklaşık kaç Wh kapasiteye ihtiyacınız olduğunu da görebilirsiniz.
+    </p>
+
+    <div class="important">
+      <strong>Önemli:</strong> Buzdolapları sürekli aynı Watt değerinde çalışmaz.
+      Kompresör açılıp kapanır ve ilk çalıştırma sırasında kısa süreli yüksek güç çekebilir.
+      Bu nedenle sonuçlar yaklaşık değerlerdir.
+    </div>
+  </div>
+
+  <div class="card">
+
+    <h2>Power Station Çalışma Süresi Hesaplayıcı</h2>
+
+    <div class="form-group">
+      <label for="capacity">Power Station Kapasitesi (Wh)</label>
+      <input type="number" id="capacity" value="500" min="1" step="1">
+      <span class="hint">Örnek: 300 Wh, 500 Wh, 1000 Wh</span>
+    </div>
+
+    <div class="form-group">
+      <label for="averageWatt">Buzdolabının Tahmini Ortalama Tüketimi (W)</label>
+      <input type="number" id="averageWatt" value="50" min="1" step="1">
+      <span class="hint">
+        En doğru sonuç için cihazınızın gerçek ortalama tüketim değerini kullanın.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="outputWatt">Power Station Sürekli AC Çıkış Gücü (W)</label>
+      <input type="number" id="outputWatt" value="500" min="1" step="1">
+      <span class="hint">Örnek: 300 W, 500 W, 1000 W</span>
+    </div>
+
+    <div class="form-group">
+      <label for="startupWatt">Buzdolabı Tahmini Kalkış Gücü (W)</label>
+      <input type="number" id="startupWatt" value="300" min="1" step="1">
+      <span class="hint">
+        Kompresör ilk devreye girerken normal çalışmadan daha yüksek güç isteyebilir.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="targetHours">Hedeflenen Çalışma Süresi (Saat)</label>
+      <input type="number" id="targetHours" value="8" min="0.1" step="0.1">
+    </div>
+
+    <div class="form-group">
+      <label for="efficiency">Sistem Verimi (%)</label>
+      <input type="number" id="efficiency" value="85" min="50" max="100" step="1">
+      <span class="hint">
+        AC inverter kayıplarını hesaba katmak için varsayılan olarak %85 kullanılmıştır.
+      </span>
+    </div>
+
+    <button onclick="calculateRuntime()">
+      Süreyi ve İhtiyacımı Hesapla
+    </button>
+
+    <div id="result" class="result">
+
+      <div id="status" class="badge"></div>
+
+      <div id="runtimeResult"></div>
+
+      <div id="powerCheck"></div>
+
+      <div class="recommendation">
+        <div id="requirementResult"></div>
+
+        <a
+          href="https://www.trendyol.com/sr?q=power+station"
+          target="_blank"
+          rel="nofollow sponsored"
+          class="cta"
+          id="productButton"
+        >
+          Power Station Modellerini İncele ➔
+        </a>
+
+        <p class="small">
+          Bu bağlantı şu anda genel ürün aramasına yönlendirir.
+          Affiliate bağlantısı kullanılması halinde bu durum ayrıca belirtilecektir.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Hesaplama Nasıl Yapılıyor?</h2>
+
+    <p>
+      Örneğin 500 Wh kapasiteli bir power station'ın AC kullanımında
+      %85 verim sağladığını varsayalım.
+    </p>
+
+    <p>
+      Kullanılabilir enerji yaklaşık:
+    </p>
+
+    <p><strong>500 Wh × 0,85 = 425 Wh</strong></p>
+
+    <p>
+      Buzdolabının gerçek ortalama tüketimi 50 W ise teorik tahmini çalışma süresi:
+    </p>
+
+    <p><strong>425 Wh ÷ 50 W = 8,5 saat</strong></p>
+
+    <p>
+      Gerçek sonuç; ortam sıcaklığı, buzdolabının modeli, kapının açılma sıklığı,
+      termostat ayarı, kompresör çalışma döngüsü ve power station kayıpları nedeniyle değişebilir.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Hedef Süre İçin Kaç Wh Gerekir?</h2>
+
+    <p>
+      Hesaplayıcı yalnızca elinizdeki power station'ın tahmini çalışma süresini göstermez.
+      Aynı zamanda istediğiniz çalışma süresi için gereken yaklaşık kapasiteyi hesaplar.
+    </p>
+
+    <p>
+      Örneğin buzdolabınızın ortalama tüketimi 50 W ve hedefiniz 8 saat ise:
+    </p>
+
+    <p><strong>50 W × 8 saat = 400 Wh kullanılabilir enerji</strong></p>
+
+    <p>
+      %85 sistem verimi varsayımında yaklaşık minimum nominal kapasite:
+    </p>
+
+    <p><strong>400 ÷ 0,85 ≈ 471 Wh</strong></p>
+
+    <p>
+      Hesaplayıcımız ayrıca gerçek kullanım farklılıkları için %20 kapasite payı gösterir.
+      Bu örnekte alışverişte hedeflenecek kapasite yaklaşık:
+    </p>
+
+    <p><strong>565 Wh ve üzeridir.</strong></p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Sadece Wh Değerine Bakmak Yeterli mi?</h2>
+
+    <p>
+      Hayır. Power station'ın enerji kapasitesi yeterli olsa bile inverter gücü,
+      buzdolabının kompresörünü başlatmak için yetersiz olabilir.
+    </p>
+
+    <div class="info">
+      <strong>Wh</strong> cihazın ne kadar enerji depoladığını,
+      <strong>W</strong> ise aynı anda ne kadar güç sağlayabildiğini ifade eder.
+    </div>
+
+    <p>
+      Bu nedenle power station seçerken hem kapasiteyi (Wh) hem sürekli çıkış gücünü (W)
+      hem de üreticinin belirttiği tepe/surge çıkış değerlerini kontrol edin.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Örnek Tahmini Süreler</h2>
+
+    <table>
+      <tr>
+        <th>Kapasite</th>
+        <th>Ortalama Tüketim</th>
+        <th>%85 Verimle Tahmini Süre</th>
+      </tr>
+
+      <tr>
+        <td>300 Wh</td>
+        <td>50 W</td>
+        <td>5,1 saat</td>
+      </tr>
+
+      <tr>
+        <td>500 Wh</td>
+        <td>50 W</td>
+        <td>8,5 saat</td>
+      </tr>
+
+      <tr>
+        <td>1000 Wh</td>
+        <td>50 W</td>
+        <td>17 saat</td>
+      </tr>
+    </table>
+
+    <p class="small">
+      Bu tablo örnek hesaplamadır. Buzdolabınızın gerçek ortalama tüketimi farklı olabilir.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Sık Sorulan Sorular</h2>
+
+    <h3>500 Wh power station buzdolabını kaç saat çalıştırır?</h3>
+    <p>
+      %85 sistem verimiyle yaklaşık 425 Wh kullanılabilir enerji kalır.
+      Buzdolabının gerçek ortalama tüketimi 50 W ise matematiksel tahmin yaklaşık
+      8,5 saattir. Gerçek kullanım süresi değişebilir.
+    </p>
+
+    <h3>1000 Wh power station buzdolabını kaç saat çalıştırır?</h3>
+    <p>
+      %85 verim ve 50 W ortalama tüketim örneğinde yaklaşık 17 saatlik teorik
+      çalışma süresi elde edilir. Bu değer gerçek buzdolabı kullanım koşullarına göre değişir.
+    </p>
+
+    <h3>Buzdolabının Watt değerini nereden öğrenebilirim?</h3>
+    <p>
+      Cihaz etiketi ve kullanım kılavuzu başlangıç noktası olabilir.
+      Ancak etiketteki anlık güç değeri ile uzun dönem ortalama tüketim aynı olmayabilir.
+      Daha doğru tahmin için gerçek enerji tüketim ölçümü tercih edilebilir.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Diğer Hesaplamalar</h2>
+
+    <p>
+      <a href="/mini-ups-modemi-kac-saat-calistirir/">
+        Mini UPS modemi kaç saat çalıştırır?
+      </a>
+    </p>
+
+    <p>
+      <a href="/12v-100ah-aku-kac-saat-calisir/">
+        12V 100Ah akü kaç saat çalışır?
+      </a>
+    </p>
+
+  </div>
+
+  <footer>
+    Kaç Saat Çalıştırır? — Hesaplamalar tahmini sonuç verir.
+  </footer>
+
+</div>
+
+<script>
+function calculateRuntime() {
+
+  const capacity = parseFloat(document.getElementById("capacity").value);
+  const averageWatt = parseFloat(document.getElementById("averageWatt").value);
+  const outputWatt = parseFloat(document.getElementById("outputWatt").value);
+  const startupWatt = parseFloat(document.getElementById("startupWatt").value);
+  const targetHours = parseFloat(document.getElementById("targetHours").value);
+  const efficiencyPercent = parseFloat(document.getElementById("efficiency").value);
+
+  if (
+    !Number.isFinite(capacity) || capacity <= 0 ||
+    !Number.isFinite(averageWatt) || averageWatt <= 0 ||
+    !Number.isFinite(outputWatt) || outputWatt <= 0 ||
+    !Number.isFinite(startupWatt) || startupWatt <= 0 ||
+    !Number.isFinite(targetHours) || targetHours <= 0 ||
+    !Number.isFinite(efficiencyPercent) ||
+    efficiencyPercent <= 0 ||
+    efficiencyPercent > 100
+  ) {
+    alert("Lütfen tüm alanlara geçerli değerler girin.");
+    return;
+  }
+
+  const efficiency = efficiencyPercent / 100;
+
+  const usableWh = capacity * efficiency;
+  const runtime = usableWh / averageWatt;
+
+  const wholeHours = Math.floor(runtime);
+  let minutes = Math.round((runtime - wholeHours) * 60);
+  let displayHours = wholeHours;
+
+  if (minutes === 60) {
+    displayHours += 1;
+    minutes = 0;
+  }
+
+  const requiredUsableWh = averageWatt * targetHours;
+  const requiredNominalWh = requiredUsableWh / efficiency;
+
+  // Gerçek kullanım farklılıkları için %20 kapasite payı
+  const recommendedWh = requiredNominalWh * 1.20;
+
+  const result = document.getElementById("result");
+  const status = document.getElementById("status");
+  const runtimeResult = document.getElementById("runtimeResult");
+  const powerCheck = document.getElementById("powerCheck");
+  const requirementResult = document.getElementById("requirementResult");
+  const productButton = document.getElementById("productButton");
+
+  result.style.display = "block";
+
+  runtimeResult.innerHTML = `
+    <p>
+      <strong>${capacity.toFixed(0)} Wh</strong> kapasitenin
+      %${efficiencyPercent.toFixed(0)} verimle kullanılabilir enerjisi yaklaşık
+      <strong>${usableWh.toFixed(0)} Wh</strong> olur.
+    </p>
+
+    <p>
+      Girilen ortalama tüketim değerine göre tahmini çalışma süresi:
+      <strong>${displayHours} saat ${minutes} dakika</strong>.
+    </p>
+  `;
+
+  if (runtime >= targetHours) {
+    status.className = "badge success";
+    status.innerText = "Hedef Süre İçin Kapasite Yeterli";
+  } else {
+    status.className = "badge warning";
+    status.innerText = "Hedef Süre İçin Kapasite Yetersiz";
+  }
+
+  if (outputWatt >= startupWatt) {
+    powerCheck.innerHTML = `
+      <div class="info">
+        <strong>Güç kontrolü:</strong>
+        Girdiğiniz değerlere göre sürekli çıkış gücü,
+        belirtilen tahmini kalkış gücünden düşük görünmüyor.
+        Yine de power station üreticisinin surge/tepe güç şartlarını kontrol edin.
+      </div>
+    `;
+  } else {
+    powerCheck.innerHTML = `
+      <div class="important">
+        <strong>Dikkat:</strong>
+        Girdiğiniz power station çıkış gücü (${outputWatt} W),
+        buzdolabının girdiğiniz tahmini kalkış gücünden (${startupWatt} W) düşük.
+        Kapasite yeterli olsa bile cihaz kompresörü başlatamayabilir.
+        Üreticinin sürekli ve surge/tepe çıkış değerlerini kontrol edin.
+      </div>
+    `;
+  }
+
+  requirementResult.innerHTML = `
+    <strong>${targetHours} saatlik hedef için:</strong>
+
+    <p>
+      Matematiksel minimum nominal kapasite yaklaşık
+      <strong>${requiredNominalWh.toFixed(0)} Wh</strong>.
+    </p>
+
+    <p>
+      %20 kapasite payı eklendiğinde karşılaştırma için hedef kapasite yaklaşık
+      <strong>${recommendedWh.toFixed(0)} Wh ve üzeri</strong>.
+    </p>
+
+    <p class="small">
+      Bu değer kesin ürün garantisi değildir. Gerçek tüketim ve üretici teknik
+      özellikleri mutlaka kontrol edilmelidir.
+    </p>
+  `;
+
+  productButton.innerText =
+    `${recommendedWh.toFixed(0)} Wh ve Üzeri Power Station Seçeneklerini İncele ➔`;
+}
+</script>
+
+</body>
+</html>
