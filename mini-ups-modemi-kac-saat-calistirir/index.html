@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mini UPS Modemi Kaç Saat Çalıştırır? Hesaplama Aracı</title>
+
+  <meta name="description" content="Mini UPS modemi kaç saat çalıştırır? 8000 mAh, 10000 mAh, 12000 mAh ve farklı kapasitelerde mini UPS çalışma süresini ücretsiz hesaplayın.">
+
+  <link rel="canonical" href="https://kacsaatcalisir.com/mini-ups-modemi-kac-saat-calistirir/">
+
+  <!-- Sık Sorulan Sorular için yapılandırılmış veri -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "10000 mAh mini UPS modemi kaç saat çalıştırır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10000 mAh ve 3.7V nominal bataryaya sahip bir mini UPS, yüzde 85 sistem verimi varsayımıyla 12W tüketen bir cihazı teorik olarak yaklaşık 2.6 saat çalıştırabilir. Gerçek süre cihaz ve kullanım koşullarına göre değişebilir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Modem ve fiber ONT aynı UPS'e bağlanabilir mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mini UPS gerekli çıkış voltajlarını ve toplam gücü destekliyorsa modem ve ONT birlikte bağlanabilir. Çalışma süresi hesaplanırken iki cihazın toplam güç tüketimi dikkate alınmalıdır."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.65;
+    }
+
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 30px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    main {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+
+    h2 {
+      color: #0f172a;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #1e293b;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .result {
+      display: none;
+      margin-top: 18px;
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .info {
+      background: #eff6ff;
+      border-left: 5px solid #3b82f6;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .product-box {
+      display: none;
+      margin-top: 18px;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .product-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: #16a34a;
+      color: white;
+      padding: 13px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .product-btn:hover {
+      background: #15803d;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+    }
+
+    a {
+      color: #2563eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Mini UPS Modemi Kaç Saat Çalıştırır?</h1>
+  <p>
+    Mini UPS kapasitesini ve cihazınızın güç tüketimini girerek
+    tahmini çalışma süresini hesaplayın.
+  </p>
+</header>
+
+<main>
+
+  <section class="card">
+
+    <h2>Mini UPS Çalışma Süresi Hesaplama</h2>
+
+    <p>
+      Mini UPS'in üzerinde yazan mAh değeri tek başına çalışma
+      süresini belirlemek için yeterli değildir.
+      Batarya voltajı, cihazın gerçek güç tüketimi ve dönüşüm
+      kayıpları da sonucu etkiler.
+    </p>
+
+    <label for="preset">Örnek kullanım tipi</label>
+
+    <select id="preset" onchange="applyPreset()">
+      <option value="custom">Manuel değer gireceğim</option>
+      <option value="8">Modem için örnek değer (~8W)</option>
+      <option value="12" selected>Modem için örnek değer (~12W)</option>
+      <option value="16">Modem + ONT için örnek değer (~16W)</option>
+      <option value="25">Modem + ek cihazlar için örnek (~25W)</option>
+    </select>
+
+    <p class="small">
+      Yukarıdaki Watt değerleri yalnızca örnektir.
+      Gerçek tüketim cihaz modeline göre değişebilir.
+    </p>
+
+    <label for="capacity">Mini UPS kapasitesi (mAh)</label>
+    <input id="capacity" type="number" min="1" value="8000">
+
+    <label for="voltage">Batarya nominal voltajı (V)</label>
+    <input id="voltage" type="number" min="0.1" step="0.1" value="3.7">
+
+    <label for="watts">Cihazın güç tüketimi (W)</label>
+    <input id="watts" type="number" min="0.1" step="0.1" value="12">
+
+    <label for="efficiency">Tahmini sistem verimi (%)</label>
+    <input id="efficiency" type="number" min="1" max="100" value="85">
+
+    <button onclick="calculateRuntime()">
+      Çalışma Süresini Hesapla
+    </button>
+
+    <div id="result" class="result"></div>
+
+    <div id="productBox" class="product-box">
+
+      <h3 style="margin-top:0;">
+        Daha Uzun Çalışma Süresi mi Gerekiyor?
+      </h3>
+
+      <p id="productText"></p>
+
+      <a
+        href="https://www.trendyol.com/sr?q=mini+ups+modem"
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
+        class="product-btn">
+        Mini UPS Modellerini İncele →
+      </a>
+
+      <p class="small">
+        Not: Bu bağlantı şu anda standart ürün arama bağlantısıdır.
+        İleride iş ortaklığı bağlantısı kullanılması halinde
+        bağlantı üzerinden komisyon kazanılabilir.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>8000 mAh Mini UPS Modemi Kaç Saat Çalıştırır?</h2>
+
+    <p>
+      Örnek olarak bataryası 3,7 V nominal gerilime sahip
+      8000 mAh bir mini UPS'i ele alalım.
+    </p>
+
+    <p>
+      8000 mAh = 8 Ah
+    </p>
+
+    <p>
+      <strong>8 Ah × 3,7 V = 29,6 Wh</strong>
+    </p>
+
+    <p>
+      Bu değer bataryanın yaklaşık nominal enerji kapasitesidir.
+    </p>
+
+    <p>
+      %85 sistem verimi varsayılırsa:
+    </p>
+
+    <p>
+      <strong>29,6 Wh × 0,85 ≈ 25,2 Wh</strong>
+    </p>
+
+    <p>
+      Cihazın ortalama tüketiminin 12 W olduğunu varsayarsak:
+    </p>
+
+    <p>
+      <strong>25,2 Wh ÷ 12 W ≈ 2,1 saat</strong>
+    </p>
+
+    <p>
+      Yani bu varsayımlarda teorik çalışma süresi
+      yaklaşık <strong>2 saat 6 dakika</strong> olur.
+    </p>
+
+    <div class="warning">
+      Bu değer tahminidir. Gerçek çalışma süresi batarya hücrelerinin
+      yapısına, yaşına, çıkış voltajına, dönüştürme kayıplarına,
+      sıcaklığa ve cihazın gerçek güç tüketimine göre değişebilir.
+    </div>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>8000 mAh Mini UPS İçin Örnek Süreler</h2>
+
+    <p>
+      Aşağıdaki tablo 3,7 V nominal batarya ve %85 sistem
+      verimi varsayımıyla hazırlanmıştır.
+    </p>
+
+    <table>
+
+      <tr>
+        <th>Cihaz tüketimi</th>
+        <th>Tahmini süre</th>
+      </tr>
+
+      <tr>
+        <td>5 W</td>
+        <td>Yaklaşık 5 saat</td>
+      </tr>
+
+      <tr>
+        <td>8 W</td>
+        <td>Yaklaşık 3,1 saat</td>
+      </tr>
+
+      <tr>
+        <td>10 W</td>
+        <td>Yaklaşık 2,5 saat</td>
+      </tr>
+
+      <tr>
+        <td>12 W</td>
+        <td>Yaklaşık 2,1 saat</td>
+      </tr>
+
+      <tr>
+        <td>15 W</td>
+        <td>Yaklaşık 1,7 saat</td>
+      </tr>
+
+    </table>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Modem Kaç Watt Tüketir?</h2>
+
+    <p>
+      Hesaplamada mümkün olduğunca cihazınızın gerçek tüketim
+      değerini kullanın.
+    </p>
+
+    <p>
+      Modem adaptöründe örneğin
+      <strong>12V – 1A</strong> yazıyorsa:
+    </p>
+
+    <p>
+      <strong>12 V × 1 A = 12 W</strong>
+    </p>
+
+    <p>
+      Fakat bu, modemin sürekli 12 W tükettiği anlamına gelmez.
+      Adaptör etiketi genellikle adaptörün sağlayabileceği çıkış
+      değerini belirtir.
+    </p>
+
+    <div class="info">
+      Daha doğru sonuç için gerçek tüketimi bir güç ölçüm cihazıyla
+      ölçmek veya üreticinin teknik verilerini kontrol etmek daha uygundur.
+    </div>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>mAh Neden Tek Başına Yeterli Değil?</h2>
+
+    <p>
+      Mini UPS'lerde kapasite çoğu zaman mAh olarak belirtilir.
+      Ancak mAh tek başına enerji miktarını göstermez.
+    </p>
+
+    <p>
+      Yaklaşık nominal enerji hesabı:
+    </p>
+
+    <p>
+      <strong>Wh = (mAh ÷ 1000) × Volt</strong>
+    </p>
+
+    <p>
+      Örneğin:
+    </p>
+
+    <p>
+      <strong>
+        (8000 ÷ 1000) × 3,7 = 29,6 Wh
+      </strong>
+    </p>
+
+    <p>
+      Bu nedenle iki farklı üründe 8000 mAh yazması,
+      ürünlerin her koşulda aynı çalışma süresini vereceği
+      anlamına gelmez.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Modem ve Fiber ONT Birlikte Çalıştırılırsa Ne Olur?</h2>
+
+    <p>
+      Fiber internet kullanan bazı evlerde modem/router dışında
+      ayrıca bir ONT cihazı bulunur.
+    </p>
+
+    <p>
+      İki cihazı aynı mini UPS üzerinden çalıştıracaksanız
+      toplam tüketimi hesaplamanız gerekir.
+    </p>
+
+    <p>
+      Örneğin varsayımsal olarak:
+    </p>
+
+    <p>
+      Modem: <strong>10 W</strong><br>
+      ONT: <strong>5 W</strong>
+    </p>
+
+    <p>
+      Toplam:
+      <strong>15 W</strong>
+    </p>
+
+    <p>
+      Bu durumda hesaplama aracındaki güç tüketimi alanına
+      <strong>15</strong> yazabilirsiniz.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Mini UPS Alırken Nelere Dikkat Edilmeli?</h2>
+
+    <p>
+      Sadece ürün üzerinde yazan mAh değerine bakmayın.
+      Mümkünse Wh kapasitesini de kontrol edin.
+    </p>
+
+    <p>
+      Ayrıca cihazın desteklediği 5V, 9V veya 12V çıkışları,
+      maksimum çıkış gücü ve modeminizin ihtiyaç duyduğu
+      voltaj ile uyumluluğu kontrol edilmelidir.
+    </p>
+
+    <p>
+      Modem ve ONT'yi aynı anda kullanacaksanız mini UPS'in
+      toplam güç ihtiyacını karşılayabildiğinden emin olun.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Sık Sorulan Sorular</h2>
+
+    <h3>10000 mAh mini UPS modemi kaç saat çalıştırır?</h3>
+
+    <p>
+      Batarya 3,7 V nominal gerilime sahipse 10000 mAh yaklaşık
+      37 Wh nominal enerjiye karşılık gelir. %85 verim ve 12 W
+      tüketim varsayımıyla teorik çalışma süresi yaklaşık
+      <strong>2,6 saat</strong> olur.
+    </p>
+
+    <p>
+      Gerçek çalışma süresi ürüne ve kullanım koşullarına göre
+      farklı olabilir.
+    </p>
+
+
+    <h3>12000 mAh mini UPS daha uzun çalışır mı?</h3>
+
+    <p>
+      Aynı nominal voltaj, aynı yük ve benzer verim koşullarında
+      daha yüksek enerji kapasitesi genellikle daha uzun çalışma
+      süresi sağlar. Ürünleri karşılaştırırken mümkünse Wh
+      değerlerini karşılaştırın.
+    </p>
+
+
+    <h3>Modem ve fiber ONT aynı UPS'e bağlanabilir mi?</h3>
+
+    <p>
+      Mini UPS gerekli çıkış voltajlarını ve toplam güç ihtiyacını
+      destekliyorsa bağlanabilir. Hesaplama yapılırken iki cihazın
+      toplam tüketimi kullanılmalıdır.
+    </p>
+
+
+    <h3>Mini UPS 8 saat internet sağlayabilir mi?</h3>
+
+    <p>
+      Bu tamamen mini UPS'in gerçek enerji kapasitesine ve bağlı
+      cihazların toplam tüketimine bağlıdır. Yukarıdaki hesaplama
+      aracına kendi değerlerinizi girerek yaklaşık süreyi
+      hesaplayabilirsiniz.
+    </p>
+
+  </section>
+
+
+  <section class="card">
+
+    <h2>Diğer Çalışma Süresi Hesaplamaları</h2>
+
+    <p>
+      Büyük akü sistemleri için:
+      <a href="/12v-100ah-aku-kac-saat-calisir/">
+        12V 100Ah Akü Kaç Saat Çalıştırır?
+      </a>
+    </p>
+
+    <p>
+      Farklı cihaz, UPS ve batarya kapasitelerini hesaplamak için:
+      <a href="/">
+        Kaç Saat Çalıştırır? Ana Hesaplama Aracı
+      </a>
+    </p>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    Hesaplama sonuçları tahminidir ve garanti edilen gerçek
+    çalışma süresi değildir.
+  </p>
+
+  <p>
+    © 2026 Kaç Saat Çalıştırır?
+  </p>
+
+</footer>
+
+
+<script>
+
+function applyPreset() {
+
+  const preset =
+    document.getElementById("preset").value;
+
+  if (preset !== "custom") {
+    document.getElementById("watts").value = preset;
+  }
+
+}
+
+
+function calculateRuntime() {
+
+  const capacity =
+    parseFloat(document.getElementById("capacity").value);
+
+  const voltage =
+    parseFloat(document.getElementById("voltage").value);
+
+  const watts =
+    parseFloat(document.getElementById("watts").value);
+
+  const efficiency =
+    parseFloat(document.getElementById("efficiency").value);
+
+
+  const result =
+    document.getElementById("result");
+
+  const productBox =
+    document.getElementById("productBox");
+
+  const productText =
+    document.getElementById("productText");
+
+
+  if (
+    !Number.isFinite(capacity) || capacity <= 0 ||
+    !Number.isFinite(voltage) || voltage <= 0 ||
+    !Number.isFinite(watts) || watts <= 0 ||
+    !Number.isFinite(efficiency) ||
+    efficiency <= 0 ||
+    efficiency > 100
+  ) {
+
+    result.style.display = "block";
+
+    result.innerHTML =
+      "Lütfen tüm alanlara geçerli ve sıfırdan büyük değerler girin. Verim değeri 1–100 arasında olmalıdır.";
+
+    productBox.style.display = "none";
+
+    return;
+  }
+
+
+  const ah = capacity / 1000;
+
+  const nominalWh =
+    ah * voltage;
+
+  const usableWh =
+    nominalWh * (efficiency / 100);
+
+  const hours =
+    usableWh / watts;
+
+
+  let wholeHours =
+    Math.floor(hours);
+
+  let minutes =
+    Math.round((hours - wholeHours) * 60);
+
+
+  if (minutes === 60) {
+    wholeHours += 1;
+    minutes = 0;
+  }
+
+
+  result.style.display = "block";
+
+  result.innerHTML =
+    "<strong>Tahmini çalışma süresi:</strong><br>" +
+    hours.toFixed(2) + " saat<br>" +
+    "Yaklaşık " +
+    wholeHours +
+    " saat " +
+    minutes +
+    " dakika" +
+    "<br><br>" +
+    "<strong>Nominal enerji:</strong> " +
+    nominalWh.toFixed(1) +
+    " Wh<br>" +
+    "<strong>Kayıplar sonrası tahmini enerji:</strong> " +
+    usableWh.toFixed(1) +
+    " Wh";
+
+
+  productBox.style.display = "block";
+
+
+  if (hours < 4) {
+
+    productText.innerHTML =
+      "Bu değerlere göre tahmini çalışma süresi <strong>" +
+      wholeHours +
+      " saat " +
+      minutes +
+      " dakika</strong>. Daha uzun kullanım istiyorsanız daha yüksek enerji kapasitesine sahip seçenekleri karşılaştırabilirsiniz.";
+
+  } else {
+
+    productText.innerHTML =
+      "Bu değerlere göre tahmini çalışma süresi <strong>" +
+      wholeHours +
+      " saat " +
+      minutes +
+      " dakika</strong>. Benzer mini UPS seçeneklerini karşılaştırabilirsiniz.";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
